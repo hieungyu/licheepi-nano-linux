@@ -1,10 +1,7 @@
-# Sử dụng Ubuntu 22.04 LTS làm nền tảng ổn định
 FROM ubuntu:22.04
 
-# Bỏ qua các thông báo tương tác khi cài đặt
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Cập nhật hệ thống và cài đặt toolchain cùng các thư viện phụ thuộc
 RUN apt-get update && apt-get install -y \
     build-essential \
     gcc-arm-linux-gnueabi \
@@ -27,8 +24,8 @@ RUN apt-get update && apt-get install -y \
     apt-get update && apt-get install -y python2 \
     apt-get update && apt-get install -y python2-dev
 
-# Thiết lập thư mục làm việc mặc định trong container
+# set up workspace default
 WORKDIR /workspace
 
-# Khởi chạy Bash shell mặc định
+# run bash shell default
 CMD ["/bin/bash"]
